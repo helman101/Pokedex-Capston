@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import { createStore } from 'redux';
+import pokemonAPIModule from './API/PokemonAPI';
+import Routes from './routes/Routes'
 
-const defaultStore = {
+const defaultState = {
   filter: null,
-  pokemon: {},
+  pokemon: null,
 }
 
-const store = createStore(defaultState);
+let reducer = (name='null') => {
+  return name
+}
+
+const store = createStore(reducer, defaultState);
 
 ReactDOM.render(
   <React.StrictMode>
