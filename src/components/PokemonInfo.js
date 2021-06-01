@@ -12,3 +12,5 @@ const PokemonInfo = (props) => {
     </div>
   );
 }
+
+export default PokemonInfo;
