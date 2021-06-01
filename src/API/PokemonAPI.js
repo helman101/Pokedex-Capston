@@ -19,3 +19,5 @@ const pokemonAPIModule = (() => {
 
   return { pokeAPI, searchByName, searchByType }
 })
+
+export default pokemonAPIModule;

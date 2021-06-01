@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import pokemonAPIModule from '../API/PokemonAPI'
 
 const PokemonInfo = (props) => {
-  const { pokemon } = props;
+  const pokemon = pokemonAPIModule.pokeAPI(props.name);
 
   return(
     <div>
