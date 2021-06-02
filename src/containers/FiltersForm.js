@@ -1,23 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import types from '../utilities/types';
 
-const FiltersForm = () => {
-  const [pokeName, setPokeName] = useState(null);
-  const [pokeType, setPokeType] = useState('All');
-
-  return(
+const FiltersForm = () => (
+  <div>
     <div>
-      <div>
-        <input type="text" />
-        <button>Submit</button>
-      </div>
-      <div>
-        <select>
-          {types.map(type => (<option key={type} value={type}>{type}</option>))}
-        </select>
-      </div>
+      <input type="text" />
+      <button type="button">Submit</button>
     </div>
-  )
-}
+    <div>
+      <select>
+        {types.map((type) => (<option key={type} value={type}>{type}</option>))}
+      </select>
+    </div>
+  </div>
+);
 
 export default FiltersForm;

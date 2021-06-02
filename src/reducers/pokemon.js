@@ -1,12 +1,11 @@
 const LOADED = 'LOADED';
 
-const APILoaded = (state = {}, action) => {
+const pokemonReducer = (state = {}, action) => {
   if (action.type === LOADED) {
-    return {
-      pokemon: action.payload,
-    };
+    return action.payload;
   }
+
   return state;
 };
 
-export default APILoaded;
+export default pokemonReducer;

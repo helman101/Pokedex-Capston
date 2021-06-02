@@ -17,6 +17,6 @@ const types = [
   'dragon',
   'dark',
   'fairy',
-]
+];
 
 export default types;

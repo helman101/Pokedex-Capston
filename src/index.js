@@ -1,18 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import pokemonAPIModule from './API/PokemonAPI';
 import Routes from './routes/Routes';
-import APILoaded from './reducers/pokemon';
+import pokemonReducer from './reducers/pokemon';
+import filterReducer from './reducers/type';
 import './index.css';
 
 const defaultState = {
   pokemon: {},
+  filter: 'All',
 };
 
-const store = createStore(APILoaded, defaultState, applyMiddleware(thunk));
+const rootReducer = combineReducers({
+  pokemon: pokemonReducer,
+  filter: filterReducer,
+});
+
+const store = createStore(rootReducer, defaultState, applyMiddleware(thunk));
 
 store.dispatch(pokemonAPIModule.firstPokemon);
 
