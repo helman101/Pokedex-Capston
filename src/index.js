@@ -10,22 +10,7 @@ const defaultState = {
   pokemon: {},
 }
 
-let reducer = (state = {}, action) => {
-  if (action.type === 'LOADED') {
-    return {
-      pokemon: action.payload
-    }
-  }
-
-  return state
-}
-
-const store = createStore(reducer, defaultState, applyMiddleware(thunk));
-
-let twentyPokemon = async (dispatch, getState) => {
-  let result = await pokemonAPIModule.pokeAPI('https://pokeapi.co/api/v2/pokemon/');
-  dispatch({ type: 'LOADED', payload: result });
-}
+const store = createStore(pokemonAPIModule.firstPokemon, defaultState, applyMiddleware(thunk));
 
 store.dispatch(twentyPokemon)
 

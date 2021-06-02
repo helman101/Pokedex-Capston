@@ -23,7 +23,12 @@ const pokemonAPIModule = (() => {
     set(result);
   }
 
-  return { pokeAPI, searchByName, searchByType, setAPIInfo }
+  let firstPokemon = async (dispatch, _getState) => {
+    let result = await pokemonAPIModule.pokeAPI('https://pokeapi.co/api/v2/pokemon/');
+    dispatch({ type: 'LOADED', payload: result });
+  }
+
+  return { pokeAPI, searchByName, searchByType, setAPIInfo, firstPokemon }
 })();
 
 export default pokemonAPIModule;
