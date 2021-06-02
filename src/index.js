@@ -5,7 +5,7 @@ import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import pokemonAPIModule from './API/PokemonAPI';
 import Routes from './routes/Routes';
-import APILoaded from './reducers/API';
+import APILoaded from './reducers/pokemon';
 import './index.css';
 
 const defaultState = {

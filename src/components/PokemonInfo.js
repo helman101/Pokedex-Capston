@@ -8,6 +8,7 @@ const PokemonInfo = (props) => {
   const [pokeInfo, setPokeInfo] = useState(null);
   pokemonAPIModule.setAPIInfo(setPokeInfo, url);
   const pokI = pokeInfo ? pokeInfo.game_indices[pokeInfo.game_indices.length - 1].game_index : null;
+  const pokeNumber = 'N° '.concat(pokI);
   const name = pokeInfo ? pokeInfo.name.charAt(0).toUpperCase().concat(pokeInfo.name.slice(1)) : '';
   return (
     <div className={`${styles.dFlex} 
@@ -27,7 +28,7 @@ const PokemonInfo = (props) => {
             alt={pokeInfo.name}
           />
         )}
-        {pokeInfo && <div className={`${styles.heigthFitContent}`}>{pokI}</div>}
+        {pokeInfo && <div className={`${styles.heigthFitContent}`}>{pokeNumber}</div>}
       </div>
       {pokeInfo && <div className={`${styles.pokeName}`}>{name}</div>}
     </div>
