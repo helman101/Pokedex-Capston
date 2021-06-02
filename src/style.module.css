@@ -1,0 +1,59 @@
+.dFlex {
+  display: flex;
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+
+.heigthFitContent {
+  height: fit-content;
+}
+
+.pokeContainer {
+  font-size: 1.2rem;
+  width: 800px;
+  height: 130px;
+  border-radius: 80px;
+  background: black;
+  color: white;
+  margin: 3px auto;
+}
+
+.pokeRed {
+  width: 50%;
+  height: 100%;
+  color: black;
+  background: rgb(238, 68, 68);
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-right: 2px solid white;
+}
+
+.pokeName {
+  width: 50%;
+  text-align: center;
+}
+
+.pokeList {
+  width: 900px;
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.pokeListSprite {
+  height: 120px;
+  margin-right: 20px;
+}
+
+.justifyContentAround {
+  justify-content: space-around;
+}
+
+.justifyContentBetween {
+  justify-content: space-between;
+}
+
+.justifyContentCenter {
+  justify-content: center;
+}

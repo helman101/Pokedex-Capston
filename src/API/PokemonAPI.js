@@ -1,34 +1,35 @@
 const pokemonAPIModule = (() => {
-  let pokeAPI = async (url) => {
-    let result = await fetch(url);
-    let data = await result.json();
+  const pokeAPI = async (url) => {
+    const result = await fetch(url);
+    const data = await result.json();
     return data;
-  }
+  };
 
-  let searchByName = async (name) => {
-    let result = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-    let data = await result.json();
+  const searchByName = async (name) => {
+    const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    const data = await result.json();
     return data;
-  }
+  };
 
-  let searchByType = async (type) => {
-    let result = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
-    let data = await result.json();
+  const searchByType = async (type) => {
+    const result = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+    const data = await result.json();
     return data;
-  }
+  };
 
-  const setAPIInfo = async (set, url) => { 
-    let result = await pokemonAPIModule.pokeAPI(url);
-    console.log(result)
+  const setAPIInfo = async (set, url) => {
+    const result = await pokemonAPIModule.pokeAPI(url);
     set(result);
-  }
+  };
 
-  let firstPokemon = async (dispatch, _getState) => {
-    let result = await pokemonAPIModule.pokeAPI('https://pokeapi.co/api/v2/pokemon/');
+  const firstPokemon = async (dispatch) => {
+    const result = await pokemonAPIModule.pokeAPI('https://pokeapi.co/api/v2/pokemon/');
     dispatch({ type: 'LOADED', payload: result });
-  }
+  };
 
-  return { pokeAPI, searchByName, searchByType, setAPIInfo, firstPokemon }
+  return {
+    pokeAPI, searchByName, searchByType, setAPIInfo, firstPokemon,
+  };
 })();
 
 export default pokemonAPIModule;

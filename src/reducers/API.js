@@ -1,13 +1,12 @@
 const LOADED = 'LOADED';
 
-let APILoaded = (state = {}, action) => {
+const APILoaded = (state = {}, action) => {
   if (action.type === LOADED) {
     return {
-      pokemon: action.payload
-    }
+      pokemon: action.payload,
+    };
   }
-  return state
-}
+  return state;
+};
 
 export default APILoaded;
-

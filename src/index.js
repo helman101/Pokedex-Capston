@@ -4,16 +4,17 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import pokemonAPIModule from './API/PokemonAPI';
-import Routes from './routes/Routes'
-import APILoaded from './reducers/API'
+import Routes from './routes/Routes';
+import APILoaded from './reducers/API';
+import './index.css';
 
 const defaultState = {
   pokemon: {},
-}
+};
 
 const store = createStore(APILoaded, defaultState, applyMiddleware(thunk));
 
-store.dispatch(pokemonAPIModule.firstPokemon)
+store.dispatch(pokemonAPIModule.firstPokemon);
 
 ReactDOM.render(
   <React.StrictMode>
