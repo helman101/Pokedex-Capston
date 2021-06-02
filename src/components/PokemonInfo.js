@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import pokemonAPIModule from '../API/PokemonAPI'
 
 const PokemonInfo = (props) => {
   const [pokeInfo, setPokeInfo] = useState(null);
-  const pokemon = async () => { 
-    let result = await pokemonAPIModule.pokeAPI(props.url);
-    console.log(result)
-    setPokeInfo(result);
-  }
-  pokemon();
+  pokemonAPIModule.setAPIInfo(setPokeInfo);
   if (pokeInfo != null) {
     return(
       <div>
@@ -22,6 +16,10 @@ const PokemonInfo = (props) => {
   }
 
   return null
+}
+
+PokemonInfo.propTypes = {
+  url: PropTypes.string.isRequired,
 }
 
 export default PokemonInfo;

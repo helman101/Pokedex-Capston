@@ -17,6 +17,12 @@ const pokemonAPIModule = (() => {
     return data;
   }
 
+  const setAPIInfo = async (set) => { 
+    let result = await pokemonAPIModule.pokeAPI(props.url);
+    console.log(result)
+    set(result);
+  }
+
   return { pokeAPI, searchByName, searchByType }
 })();
 

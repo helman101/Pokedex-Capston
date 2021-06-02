@@ -16,8 +16,12 @@ const PokemonList = (props) => {
   )
 }
 
+PokemonList.propTypes = {
+  pokemon: PropTypes.objectOf(PropTypes.object())
+};
+
 const mapStateToProps = (state) => ({
   pokemon: state.pokemon
-})
+});
 
 export default connect(mapStateToProps)(PokemonList);
