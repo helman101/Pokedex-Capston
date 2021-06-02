@@ -4,22 +4,18 @@ import pokemonAPIModule from '../API/PokemonAPI'
 
 const PokemonInfo = (props) => {
   const [pokeInfo, setPokeInfo] = useState(null);
-  pokemonAPIModule.setAPIInfo(setPokeInfo);
-  if (pokeInfo != null) {
-    return(
-      <div>
-        <div>{pokeInfo.game_indices[pokeInfo.game_indices.length - 1].game_index}</div>
-        <div>{pokeInfo.name}</div>
-        <img src={pokeInfo.sprites.front_default} />
-      </div>
-    );
-  }
-
-  return null
+  pokemonAPIModule.setAPIInfo(setPokeInfo, props.url);
+  return(
+    <div>
+      {pokeInfo && <div>{pokeInfo.game_indices[pokeInfo.game_indices.length - 1].game_index}</div>}
+      {pokeInfo && <div>{pokeInfo.name}</div>}
+      {pokeInfo && <img src={pokeInfo.sprites.front_default} alt={pokeInfo.name} />}
+    </div>
+  )
 }
 
 PokemonInfo.propTypes = {
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
 }
 
 export default PokemonInfo;

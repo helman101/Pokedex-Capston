@@ -17,8 +17,8 @@ const PokemonList = (props) => {
 }
 
 PokemonList.propTypes = {
-  pokemon: PropTypes.objectOf(PropTypes.object())
-};
+  pokemon: PropTypes.instanceOf(Object),
+}
 
 const mapStateToProps = (state) => ({
   pokemon: state.pokemon
