@@ -1,18 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import types from '../utilities/types';
 
-const FiltersForm = () => (
-  <div>
+const FiltersForm = (props) => {
+  const { handleChange } = props;
+  return (
     <div>
-      <input type="text" />
-      <button type="button">Submit</button>
+      <div>
+        <select onChange={handleChange}>
+          <option key="null" value={null}>All</option>
+          {types.map((type) => (<option key={type} value={type}>{type}</option>))}
+        </select>
+        <button type="button">Submit</button>
+      </div>
     </div>
-    <div>
-      <select>
-        {types.map((type) => (<option key={type} value={type}>{type}</option>))}
-      </select>
-    </div>
-  </div>
-);
+  );
+};
+
+FiltersForm.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default FiltersForm;

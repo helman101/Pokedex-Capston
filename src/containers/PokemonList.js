@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import PokemonInfo from '../components/PokemonInfo';
 import styles from '../style.module.css';
 import FiltersForm from './FiltersForm';
-import changeFilterAction from '../actions/type';
 
 const PokemonList = (props) => {
   const { pokemon } = props;
+  const [filter, setFilter] = useState(null);
 
   const handleFilterChange = (e) => {
     const type = e.target.value;
-    props.dispatch(changeFilterAction(type));
+    setFilter(type);
   };
+
+  console.log(filter);
 
   return (
     <div className={`${styles.dFlex}`}>
@@ -22,6 +24,7 @@ const PokemonList = (props) => {
           && pokemon.results.map((element) => (
             <PokemonInfo key={element.name} url={element.url} />))
         }
+
       </div>
       <div>
         <FiltersForm handleChange={handleFilterChange} />
@@ -32,7 +35,6 @@ const PokemonList = (props) => {
 
 PokemonList.propTypes = {
   pokemon: PropTypes.instanceOf(Object).isRequired,
-  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

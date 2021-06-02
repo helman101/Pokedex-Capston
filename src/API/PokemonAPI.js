@@ -27,8 +27,13 @@ const pokemonAPIModule = (() => {
     dispatch({ type: 'LOADED', payload: result });
   };
 
+  const pokeFilter = async (dispatch, type) => {
+    const result = await pokemonAPIModule.pokeAPI(`https://pokeapi.co/api/v2/type/${type}`);
+    dispatch({ type: 'LOADED', payload: result.pokemon });
+  };
+
   return {
-    pokeAPI, searchByName, searchByType, setAPIInfo, firstPokemon,
+    pokeAPI, searchByName, searchByType, setAPIInfo, firstPokemon, pokeFilter,
   };
 })();
 
