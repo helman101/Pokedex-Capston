@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import pokemonAPIModule from './API/PokemonAPI';
+import { firstPokemon } from './API/PokemonAPI';
 import Routes from './routes/Routes';
 import pokemonReducer from './reducers/pokemon';
 import filterReducer from './reducers/type';
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer, defaultState, applyMiddleware(thunk));
 
-store.dispatch(pokemonAPIModule.firstPokemon);
+store.dispatch(firstPokemon);
 
 ReactDOM.render(
   <React.StrictMode>
