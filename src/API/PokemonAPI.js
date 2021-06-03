@@ -1,8 +1,8 @@
 const pokemonAPIModule = (() => {
   const pokeAPI = async (url) => {
-    const result = await fetch(url);
-    const data = await result.json();
-    return data;
+    const pokemon = await fetch(url).then((res) => res.json()).then((poke) => poke);
+    console.log(pokemon);
+    return pokemon;
   };
 
   const searchByName = async (name) => {
@@ -17,19 +17,19 @@ const pokemonAPIModule = (() => {
     return data;
   };
 
-  const setAPIInfo = async (set, url) => {
-    const result = await pokemonAPIModule.pokeAPI(url);
-    set(result);
+  const setAPIInfo = async (url) => {
+    const result = await fetch(url).then((res) => res.json());
+    return result;
   };
 
   const firstPokemon = async (dispatch) => {
-    const result = await pokemonAPIModule.pokeAPI('https://pokeapi.co/api/v2/pokemon/');
+    const result = await fetch('https://pokeapi.co/api/v2/pokemon/').then((res) => res.json());
     dispatch({ type: 'LOADED', payload: result });
   };
 
   const pokeFilter = async (dispatch, type) => {
-    const result = await pokemonAPIModule.pokeAPI(`https://pokeapi.co/api/v2/type/${type}`);
-    dispatch({ type: 'LOADED', payload: result.pokemon });
+    const result = await fetch(`https://pokeapi.co/api/v2/type/${type}`).then((res) => res.json());
+    dispatch({ type: 'LOADED', payload: result });
   };
 
   return {
