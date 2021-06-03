@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import pokemonAPIModule from '../API/PokemonAPI';
+import { setAPIInfo } from '../API/PokemonAPI';
 import styles from '../style.module.css';
 
 const PokemonInfo = (props) => {
   const { url } = props;
   const [pokeInfo, setPokeInfo] = useState(null);
-  pokemonAPIModule.setAPIInfo(setPokeInfo, url);
+  useEffect(() => {
+    setAPIInfo(setPokeInfo, url);
+  }, []);
   const pokI = pokeInfo ? pokeInfo.game_indices[pokeInfo.game_indices.length - 1].game_index : null;
   const pokeNumber = 'N° '.concat(pokI);
   const name = pokeInfo ? pokeInfo.name.charAt(0).toUpperCase().concat(pokeInfo.name.slice(1)) : '';
