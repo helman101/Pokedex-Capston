@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import types from '../utilities/types';
 
 const FiltersForm = (props) => {
-  const { handleChange } = props;
+  const { handleChange, onNextClick, onPreviousClick } = props;
   return (
     <div>
       <div>
@@ -13,8 +13,8 @@ const FiltersForm = (props) => {
         </select>
       </div>
       <div>
-        <button type="button">Previus</button>
-        <button type="button">Next</button>
+        <button onClick={onPreviousClick} type="button">Previus</button>
+        <button onClick={onNextClick} type="button">Next</button>
       </div>
     </div>
   );
@@ -22,6 +22,8 @@ const FiltersForm = (props) => {
 
 FiltersForm.propTypes = {
   handleChange: PropTypes.func.isRequired,
+  onNextClick: PropTypes.func.isRequired,
+  onPreviousClick: PropTypes.func.isRequired,
 };
 
 export default FiltersForm;

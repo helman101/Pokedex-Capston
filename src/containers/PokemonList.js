@@ -4,14 +4,32 @@ import PropTypes from 'prop-types';
 import PokemonInfo from '../components/PokemonInfo';
 import styles from '../style.module.css';
 import FiltersForm from './FiltersForm';
-import { searchByType } from '../API/PokemonAPI';
+import {
+  searchByType,
+  nextPokeList,
+  firstPokemon,
+  previousPokeList,
+} from '../API/PokemonAPI';
 
 const PokemonList = (props) => {
   const { pokemon } = props;
 
   const handleFilterChange = (e) => {
     const type = e.target.value;
-    props.dispatch(searchByType(type));
+
+    if (type !== 'All') {
+      props.dispatch(searchByType(type));
+    } else {
+      props.dispatch(firstPokemon);
+    }
+  };
+
+  const handleNext = () => {
+    props.dispatch(nextPokeList);
+  };
+
+  const handlePrevious = () => {
+    props.dispatch(previousPokeList);
   };
 
   return (
@@ -24,7 +42,11 @@ const PokemonList = (props) => {
         }
       </div>
       <div>
-        <FiltersForm handleChange={handleFilterChange} />
+        <FiltersForm
+          handleChange={handleFilterChange}
+          onPreviousClick={handlePrevious}
+          onNextClick={handleNext}
+        />
       </div>
     </div>
   );
