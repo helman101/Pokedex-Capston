@@ -25,7 +25,12 @@ const PokemonInfo = (props) => {
   }
 
   return (
-    <Link key={pokeInfo && pokeInfo.id} onClick={handleLink(pokeInfo)} className={styles.textDecorationNone} to="/pokemon">
+    <Link
+      key={pokeInfo && pokeInfo.id}
+      onClick={handleLink(pokeInfo)}
+      className={`${styles.textDecorationNone}`}
+      to="/pokemon"
+    >
       <div className={`${styles.dFlex} 
         ${styles.alignItemsCenter}
         ${styles.justifyContentBetween}
