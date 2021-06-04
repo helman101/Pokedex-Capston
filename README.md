@@ -1,5 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
+# Catalogue of Recipes
+
 # Pokedex ~ React/Redux Capstone Project
 
 A simple web app, with two pages, one for list the content, an the other one to show the elements information, here i implement the basic and advance React/Redux features such as:
@@ -19,6 +21,11 @@ A simple web app, with two pages, one for list the content, an the other one to 
 ![](src/utilities/screenshot.png)
 
 ## [Live Link](https://pokedex-helman101.herokuapp.com/)
+
+## Project Videos
+
+  - [Part 1](https://www.loom.com/share/b2adf7611cf24672ba6a79b2ba49c4f3?sharedAppSource=personal_library)
+  - [Part 2](https://www.loom.com/share/23dfad07d29249749607a016752ebe68?sharedAppSource=personal_library)
 
 ## Built With
 
