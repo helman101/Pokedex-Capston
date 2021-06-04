@@ -6,17 +6,17 @@ import thunk from 'redux-thunk';
 import { firstPokemon } from './API/PokemonAPI';
 import Routes from './routes/Routes';
 import pokemonReducer from './reducers/pokemon';
-import filterReducer from './reducers/type';
+import currentReducer from './reducers/current';
 import './index.css';
 
 const defaultState = {
   pokemon: {},
-  filter: 'All',
+  currentPokemon: {},
 };
 
 const rootReducer = combineReducers({
   pokemon: pokemonReducer,
-  filter: filterReducer,
+  currentPokemon: currentReducer,
 });
 
 const store = createStore(rootReducer, defaultState, applyMiddleware(thunk));
