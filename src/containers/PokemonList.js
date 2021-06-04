@@ -14,7 +14,6 @@ import {
 
 const PokemonList = (props) => {
   const { pokemon } = props;
-
   const handleFilterChange = (e) => {
     const type = e.target.value;
     if (type !== 'All') {
@@ -25,11 +24,15 @@ const PokemonList = (props) => {
   };
 
   const handleNext = () => {
-    props.dispatch(nextPokeList);
+    if (pokemon.next) {
+      props.dispatch(nextPokeList);
+    }
   };
 
   const handlePrevious = () => {
-    props.dispatch(previousPokeList);
+    if (pokemon.previous) {
+      props.dispatch(previousPokeList);
+    }
   };
 
   const handleLink = (poke) => () => {
