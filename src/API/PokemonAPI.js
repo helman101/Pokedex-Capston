@@ -1,3 +1,5 @@
+import { filterChangeAction, loadedAction } from '../actions/pokemon';
+
 const pokeAPI = async (url) => {
   const pokemon = await fetch(url).then((res) => res.json()).then((poke) => poke);
   console.log(pokemon);
@@ -10,10 +12,10 @@ const searchByName = async (name) => {
   return data;
 };
 
-const searchByType = async (type) => {
-  const result = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
-  const data = await result.json();
-  return data;
+const searchByType = (type) => async (dispatch) => {
+  const result = await fetch(`https://pokeapi.co/api/v2/type/${type}`).then((res) => res.json());
+  console.log(result);
+  dispatch(filterChangeAction(result));
 };
 
 const setAPIInfo = async (set, url) => {
@@ -24,7 +26,7 @@ const setAPIInfo = async (set, url) => {
 const firstPokemon = async (dispatch) => {
   try {
     const result = await fetch('https://pokeapi.co/api/v2/pokemon/').then((res) => res.json());
-    dispatch({ type: 'LOADED', payload: result });
+    dispatch(loadedAction(result));
   } catch (err) {
     console.log(err);
   }
@@ -32,7 +34,7 @@ const firstPokemon = async (dispatch) => {
 
 const pokeFilter = async (dispatch, type) => {
   const result = await fetch(`https://pokeapi.co/api/v2/type/${type}`).then((res) => res.json());
-  dispatch({ type: 'LOADED', payload: result });
+  dispatch(filterChangeAction(result));
 };
 
 export {
