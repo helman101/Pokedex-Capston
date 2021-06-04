@@ -11,7 +11,10 @@ const FiltersForm = (props) => {
           <option key="null" value={null}>All</option>
           {types.map((type) => (<option key={type} value={type}>{type}</option>))}
         </select>
-        <button type="button">Submit</button>
+      </div>
+      <div>
+        <button type="button">Previus</button>
+        <button type="button">Next</button>
       </div>
     </div>
   );
