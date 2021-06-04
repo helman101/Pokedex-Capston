@@ -1,20 +1,24 @@
 import { filterChangeAction, loadedAction } from '../actions/pokemon';
 
 const nextPokeList = async (dispatch, getState) => {
-  try {
-    const result = await fetch(getState().pokemon.next).then((res) => res.json());
-    dispatch(loadedAction(result));
-  } catch (err) {
-    console.log(err);
+  if (getState().pokemon.next) {
+    try {
+      const result = await fetch(getState().pokemon.next).then((res) => res.json());
+      dispatch(loadedAction(result));
+    } catch (err) {
+      console.log(err);
+    }
   }
 };
 
 const previousPokeList = async (dispatch, getState) => {
-  try {
-    const result = await fetch(getState().pokemon.previous).then((res) => res.json());
-    dispatch(loadedAction(result));
-  } catch (err) {
-    console.log(err);
+  if (getState().pokemon.previous) {
+    try {
+      const result = await fetch(getState().pokemon.previous).then((res) => res.json());
+      dispatch(loadedAction(result));
+    } catch (err) {
+      console.log(err);
+    }
   }
 };
 
