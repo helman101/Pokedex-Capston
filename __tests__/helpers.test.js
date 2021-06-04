@@ -5,10 +5,10 @@ describe('helpers', () => {
     it('retuns the info name capitalized', () => {
       const info = { id: 5, name: 'minus' };
       expect(pokeIndex(info).name).toMatch('Minus');
-    })
+    });
     it('retuns the info id organized', () => {
       const info = { id: 5, name: 'minus' };
       expect(pokeIndex(info).pokI).toMatch('Nº 005');
-    })
-  })
-})
+    });
+  });
+});
