@@ -37,7 +37,7 @@ const PokemonList = (props) => {
   };
 
   return (
-    <div className={`${styles.dFlex}`}>
+    <div className={`${styles.dFlex} ${styles.marginTop10} ${styles.pokedex}`}>
       <div className={`${styles.pokeList}`}>
         {
           pokemon.results
@@ -45,7 +45,16 @@ const PokemonList = (props) => {
             <PokemonInfo key={element.name} url={element.url} handleLink={handleLink} />))
         }
       </div>
-      <div>
+      <div
+        className={`
+          ${styles.form} 
+          ${styles.dFlex}
+          ${styles.flexColumn}
+          ${styles.alignItemsCenter}
+          ${styles.justifyContentCenter}
+        `}
+      >
+        <img className={styles.pokemonLogo} src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1280px-International_Pok%C3%A9mon_logo.svg.png" alt="pokemon logo" />
         <FiltersForm
           handleChange={handleFilterChange}
           onPreviousClick={handlePrevious}
