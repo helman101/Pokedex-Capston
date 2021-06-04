@@ -213,6 +213,7 @@
   width: 120px;
   height: 50px;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .pokeButtons:first-child {

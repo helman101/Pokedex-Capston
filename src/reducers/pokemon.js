@@ -11,6 +11,8 @@ const pokemonReducer = (state = {}, action) => {
       const newState = action.payload.pokemon.map((elem) => elem.pokemon);
       return {
         ...state,
+        previous: null,
+        next: null,
         results: newState,
       };
     }
