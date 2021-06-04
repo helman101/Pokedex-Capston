@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styles from '../style.module.css';
+import pokeIndex from '../utilities/helpers';
 
 const PokemonPage = (props) => {
   const { pokemon } = props;
+
+  const { pokI } = pokeIndex(pokemon);
+
   return (
     <div className={styles.marginTop10}>
       <div className={styles.backLink}>
@@ -28,7 +32,7 @@ const PokemonPage = (props) => {
               ${styles.alignItemsCenter}`
             }
           >
-            <div>{pokemon.id}</div>
+            <div>{pokI}</div>
             <div>{pokemon.name.toUpperCase()}</div>
           </div>
           <div

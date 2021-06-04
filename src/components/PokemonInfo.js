@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { setAPIInfo } from '../API/PokemonAPI';
 import styles from '../style.module.css';
+import pokeIndex from '../utilities/helpers';
 
 const PokemonInfo = (props) => {
   const { url, handleLink } = props;
@@ -10,18 +11,14 @@ const PokemonInfo = (props) => {
   useEffect(() => {
     setAPIInfo(setPokeInfo, url);
   }, []);
-  let pokI = null;
-  let name = null;
+
+  let pokI = '';
+  let name = '';
 
   if (pokeInfo) {
-    if (pokeInfo.id > 99) {
-      pokI = 'Nº '.concat(pokeInfo.id);
-    } else if (pokeInfo.id > 9) {
-      pokI = 'Nº 0'.concat(pokeInfo.id);
-    } else {
-      pokI = 'Nº 00'.concat(pokeInfo.id);
-    }
-    name = pokeInfo.name.charAt(0).toUpperCase().concat(pokeInfo.name.slice(1));
+    const result = pokeIndex(pokeInfo);
+    pokI = result.pokI;
+    name = result.name;
   }
 
   return (
