@@ -1,20 +1,25 @@
 import { filterChangeAction, loadedAction } from '../actions/pokemon';
 
-const pokeAPI = async (url) => {
-  const pokemon = await fetch(url).then((res) => res.json()).then((poke) => poke);
-  console.log(pokemon);
-  return pokemon;
+const nextPokeList = async (dispatch, getState) => {
+  try {
+    const result = await fetch(getState().pokemon.next).then((res) => res.json());
+    dispatch(loadedAction(result));
+  } catch (err) {
+    console.log(err);
+  }
 };
 
-const searchByName = async (name) => {
-  const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-  const data = await result.json();
-  return data;
+const previousPokeList = async (dispatch, getState) => {
+  try {
+    const result = await fetch(getState().pokemon.previous).then((res) => res.json());
+    dispatch(loadedAction(result));
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const searchByType = (type) => async (dispatch) => {
   const result = await fetch(`https://pokeapi.co/api/v2/type/${type}`).then((res) => res.json());
-  console.log(result);
   dispatch(filterChangeAction(result));
 };
 
@@ -32,16 +37,10 @@ const firstPokemon = async (dispatch) => {
   }
 };
 
-const pokeFilter = async (dispatch, type) => {
-  const result = await fetch(`https://pokeapi.co/api/v2/type/${type}`).then((res) => res.json());
-  dispatch(filterChangeAction(result));
-};
-
 export {
-  pokeAPI,
-  searchByName,
-  searchByType,
   setAPIInfo,
+  nextPokeList,
   firstPokemon,
-  pokeFilter,
+  searchByType,
+  previousPokeList,
 };
