@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import PokemonInfo from '../components/PokemonInfo';
 import styles from '../style.module.css';
 import FiltersForm from './FiltersForm';
+import changeCurrentPokemon from '../actions/current';
 import {
   searchByType,
   nextPokeList,
@@ -16,7 +17,6 @@ const PokemonList = (props) => {
 
   const handleFilterChange = (e) => {
     const type = e.target.value;
-
     if (type !== 'All') {
       props.dispatch(searchByType(type));
     } else {
@@ -32,13 +32,17 @@ const PokemonList = (props) => {
     props.dispatch(previousPokeList);
   };
 
+  const handleLink = (poke) => () => {
+    props.dispatch(changeCurrentPokemon(poke));
+  };
+
   return (
     <div className={`${styles.dFlex}`}>
       <div className={`${styles.pokeList}`}>
         {
           pokemon.results
           && pokemon.results.map((element) => (
-            <PokemonInfo key={element.name} url={element.url} />))
+            <PokemonInfo key={element.name} url={element.url} handleLink={handleLink} />))
         }
       </div>
       <div>
