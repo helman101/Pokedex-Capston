@@ -7,41 +7,80 @@ import styles from '../style.module.css';
 const PokemonPage = (props) => {
   const { pokemon } = props;
   return (
-    <div>
-      <div>
+    <div className={styles.marginTop10}>
+      <div className={styles.backLink}>
         <Link to="/">Back</Link>
       </div>
-      <div>
-        <img
-          className={`${styles.pokePageSprite}`}
-          src={pokemon.sprites.front_default}
-          alt={pokemon.name}
-        />
-      </div>
-      <div>
-        <div>
-          <div>{pokemon.id}</div>
-          <div>{pokemon.name}</div>
+      <div className={`${styles.dFlex} ${styles.flexWrap}`}>
+        <div className={`${styles.width40}`}>
+          <img
+            className={`${styles.pokePageSprite} ${styles.height100}`}
+            src={pokemon.sprites.front_default}
+            alt={pokemon.name}
+          />
         </div>
-        <div>
-          <h2>Types</h2>
-          {pokemon.types.map((element) => (<div key={element.type.name}>{element.type.name}</div>))}
-        </div>
-        <div>
-          <h2>Abilities</h2>
-          {pokemon.abilities.map((element) => (
-            <div key={element.ability.name}>{element.ability.name}</div>
-          ))}
-        </div>
-      </div>
-      <div>
-        <h2>Stats</h2>
-        {pokemon.stats.map((element) => (
-          <div key={element.stat.name}>
-            <span>{element.stat.name.concat(': ')}</span>
-            <span>{element.base_stat}</span>
+        <div className={`${styles.width40} ${styles.height100} ${styles.rigthContainer}`}>
+          <div
+            className={
+              `${styles.dFlex}
+              ${styles.justifyContentAround}
+              ${styles.idName}
+              ${styles.alignItemsCenter}`
+            }
+          >
+            <div>{pokemon.id}</div>
+            <div>{pokemon.name.toUpperCase()}</div>
           </div>
-        ))}
+          <div
+            className={
+              `${styles.dFlex}
+              ${styles.types}
+              ${styles.justifyContentCenter}
+              ${styles.alignItemsCenter}`
+            }
+          >
+            Types:
+            {pokemon.types.map((element) => (
+              <div
+                className={styles.type}
+                key={element.type.name}
+              >
+                {element.type.name.toUpperCase()}
+              </div>
+            ))}
+          </div>
+          <div
+            className={
+              `${styles.dFlex}
+              ${styles.abilities}
+              ${styles.justifyContentCenter}
+              ${styles.alignItemsCenter}`
+            }
+          >
+            Abilities:
+            {pokemon.abilities.map((element) => (
+              <div
+                className={styles.ability}
+                key={element.ability.name}
+              >
+                {element.ability.name.toUpperCase()}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={styles.stats}>
+          <div className={`${styles.dFlex} ${styles.flexWrap}`}>
+            {pokemon.stats.map((element) => (
+              <div
+                className={`${styles.stat} ${styles.dFlex} ${styles.justifyContentBetween}`}
+                key={element.stat.name}
+              >
+                <span>{element.stat.name.concat(': ').toUpperCase()}</span>
+                <span>{element.base_stat}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
