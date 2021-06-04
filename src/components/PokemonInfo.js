@@ -8,7 +8,7 @@ const PokemonInfo = (props) => {
   const [pokeInfo, setPokeInfo] = useState(null);
   useEffect(() => {
     setAPIInfo(setPokeInfo, url);
-  }, [pokeInfo]);
+  }, []);
   let pokI = null;
   let name = null;
 
@@ -21,7 +21,6 @@ const PokemonInfo = (props) => {
       pokI = 'Nº 00'.concat(pokeInfo.id);
     }
     name = pokeInfo.name.charAt(0).toUpperCase().concat(pokeInfo.name.slice(1));
-    console.log({ name, pokI });
   }
 
   return (
