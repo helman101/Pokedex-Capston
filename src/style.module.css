@@ -1,0 +1,236 @@
+.dFlex {
+  display: flex;
+}
+
+.flexColumn {
+  flex-direction: column;
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+
+.pokeContainer {
+  font-size: 1.4rem;
+  width: 700px;
+  height: 130px;
+  border-radius: 80px;
+  background: black;
+  color: white;
+  margin: 3px auto;
+}
+
+.pokeRed {
+  width: 50%;
+  height: 100%;
+  color: black;
+  background: rgb(238, 68, 68);
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-right: 2px solid white;
+}
+
+.pokeName {
+  width: 50%;
+  text-align: center;
+}
+
+.pokeList {
+  border: 3px solid black;
+  background-color: white;
+  border-radius: 10px;
+  width: 60%;
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.pokeListSprite {
+  height: 120px;
+  margin-right: 20px;
+}
+
+.justifyContentAround {
+  justify-content: space-around;
+}
+
+.justifyContentBetween {
+  justify-content: space-between;
+}
+
+.justifyContentCenter {
+  justify-content: center;
+}
+
+.textDecorationNone {
+  text-decoration: none;
+}
+
+.pokePageSprite {
+  image-rendering: pixelated;
+  width: 100%;
+}
+
+.height100 {
+  height: 100%;
+}
+
+.width40 {
+  width: 45%;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.rigthContainer {
+  margin: auto 0;
+}
+
+.idName {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: rgb(238, 68, 68);
+  height: 50px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  image-rendering: pixelated;
+  border: 2px solid black;
+}
+
+.abilities div {
+  margin-right: 4%;
+  margin-left: 4%;
+}
+
+.stat div {
+  width: 100px;
+}
+
+.types div:first-child {
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.types {
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+}
+
+.type {
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 8px;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  padding: 8px;
+}
+
+.abilities {
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+}
+
+.ability {
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 8px;
+  text-align: center;
+  padding: 8px;
+}
+
+.backLink a:first-child {
+  margin-top: 2px;
+  padding: 8px 15px;
+  color: white;
+  text-decoration: none;
+  background-color: gray;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.backLink:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.stats {
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 2px solid black;
+  background-color: white;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.stat {
+  margin: 10px auto;
+  width: 35%;
+}
+
+.marginTop10 {
+  margin-top: 40px;
+}
+
+.pokedex {
+  background-color: rgb(238, 68, 68);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.filter {
+  width: 200px;
+  height: 50px;
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+  padding: 5px;
+}
+
+.pokeButtons {
+  width: 120px;
+  height: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.pokeButtons:first-child {
+  margin-right: 10px;
+}
+
+.button {
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgb(77, 77, 77);
+  color: white;
+  box-shadow: inset 0 0 10px #000;
+}
+
+.form {
+  width: 40%;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.pokemonLogo {
+  width: 80%;
+  margin-bottom: 40px;
+}
